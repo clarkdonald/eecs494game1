@@ -14,7 +14,8 @@
 
 class Game_Object {
   public:
-    Game_Object(const Zeni::Point2f &position_,
+    Game_Object(const int &floor_,
+                const Zeni::Point2f &position_,
                 const Zeni::Vector2f &size_,
                 const bool &blocking_,
                 const float &speed_ = 0.0f);
@@ -25,6 +26,8 @@ class Game_Object {
     
     bool touching(const Game_Object &rhs) const;
   
+    const int & get_floor() const;
+  
     const Zeni::Point2f & get_position() const;
     
     const Zeni::Vector2f & get_size() const;
@@ -33,12 +36,15 @@ class Game_Object {
   
     const bool & is_blocking() const;
   
+    void set_floor(const int &floor_);
+  
     void set_position(const Zeni::Point2f& position_);
     
   protected:
     void render(const Zeni::String &texture, const Zeni::Color &filter = Zeni::Color()) const;
   
   private:
+    int m_floor;
     Zeni::Point2f m_position;
     Zeni::Vector2f m_size;
     bool m_blocking;

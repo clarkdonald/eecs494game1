@@ -60,7 +60,6 @@ public:
   
   void render() {
     Title_State<Play_State, Instructions_State>::render();
-    
     render_image("logo", Point2f(150.0f, 0.0f), Point2f(650.0f, 225.0f));
   }
 };

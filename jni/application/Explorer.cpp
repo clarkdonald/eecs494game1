@@ -31,8 +31,10 @@ void Actions::set(const Item &item_) {
   light = item_.for_lighting();
 }
 
-Explorer::Explorer(const Point2f &position_, const Vector2f &size_)
-: Movable_Object(position_, size_, DOWN, true),
+Explorer::Explorer(const int &floor_,
+                   const Point2f &position_,
+                   const Vector2f &size_)
+: Movable_Object(floor_, position_, size_, DOWN, true),
   m_item(nullptr),
   m_sliding(false)
 {}
@@ -67,6 +69,7 @@ void Explorer::drop_item(const bool &action_, std::list<Item*> &items_) {
   if (action_ && wielding_item()) {
     m_actions.clear();
     m_item->set_position(Game_Object::get_position());
+    m_item->set_floor(Game_Object::get_floor());
     items_.push_back(m_item);
     m_item = nullptr;
   }

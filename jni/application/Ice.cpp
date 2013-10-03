@@ -11,8 +11,10 @@
 using namespace Zeni;
 using std::bad_exception;
 
-Ice::Ice(const Point2f &position_, const Vector2f &size_)
-: Terrain(position_, size_, false)
+Ice::Ice(const int &floor_,
+         const Point2f &position_,
+         const Vector2f &size_)
+: Terrain(floor_, position_, size_, false)
 {}
 
 void Ice::render() const {

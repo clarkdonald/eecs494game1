@@ -17,7 +17,9 @@
 
 class Hole : public Terrain {
   public:
-    Hole(const Zeni::Point2f &position_, const Zeni::Vector2f &size_);
+    Hole(const int &floor_,
+         const Zeni::Point2f &position_,
+         const Zeni::Vector2f &size_);
     
     void render() const;
     

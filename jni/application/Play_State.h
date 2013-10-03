@@ -9,8 +9,7 @@
 #ifndef PLAY_STATE_H
 #define PLAY_STATE_H
 
-#include "Explorer.h"
-#include "Exit.h"
+#include "Utility.h"
 #include <Zeni/Widget.h>
 #include <Zeni/Color.h>
 #include <Zeni/Gamestate.hxx>
@@ -18,21 +17,7 @@
 #include <Zeni/Chronometer.h>
 #include <vector>
 
-class Item;
-class Terrain;
-
-struct Controls {
-  Controls();
-  
-  bool up;
-  bool left;
-  bool down;
-  bool right;
-  bool speed_boost;
-  bool pickup;
-  bool drop;
-  bool use;
-};
+class Map;
 
 class Play_State : public Zeni::Gamestate_Base {
   Play_State(const Play_State &);
@@ -52,12 +37,9 @@ class Play_State : public Zeni::Gamestate_Base {
     
     void perform_logic();
   
-    std::vector< std::vector<Game_Object*> > m_grid;
-    Explorer m_explorer;
-    Exit m_exit;
     bool win;
-    std::list<Item*> m_items;
-    std::list<Terrain*> m_terrains;
+  
+    Map* map_ptr;
     Controls m_control;
     Zeni::Chronometer<Zeni::Time> m_chrono;
     float m_time_passed;

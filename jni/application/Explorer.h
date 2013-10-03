@@ -20,11 +20,8 @@ class Terrain;
 
 struct Actions {
   Actions();
-  
   void clear();
-  
   void set(const Item &item_);
-  
   bool cut;
   bool burn;
   bool light;
@@ -33,7 +30,9 @@ struct Actions {
 
 class Explorer : public Movable_Object {
   public:
-    Explorer(const Zeni::Point2f &position_, const Zeni::Vector2f &size_);
+    Explorer(const int &floor_,
+             const Zeni::Point2f &position_,
+             const Zeni::Vector2f &size_);
   
     ~Explorer();
     

@@ -17,7 +17,9 @@
 
 class Fire : public Terrain {
   public:
-    Fire(const Zeni::Point2f &position_, const Zeni::Vector2f &size_);
+    Fire(const int &floor_,
+         const Zeni::Point2f &position_,
+         const Zeni::Vector2f &size_);
     
     void render() const;
 };

@@ -16,7 +16,8 @@
 
 class Terrain : public Game_Object {
   public:
-    Terrain(const Zeni::Point2f &position_,
+    Terrain(const int &floor_,
+            const Zeni::Point2f &position_,
             const Zeni::Vector2f &size_,
             const bool &blocking_);
   

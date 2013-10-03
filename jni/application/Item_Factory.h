@@ -15,6 +15,7 @@
 class Item;
 
 Item * create_item(const Zeni::String &type_,
+                   const int &floor_,
                    const Zeni::Point2f &position_,
                    const Zeni::Vector2f &size_);
 

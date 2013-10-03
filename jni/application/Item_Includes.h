@@ -12,5 +12,6 @@
 #include "Item.h"
 #include "Axe.h"
 #include "Pill.h"
+#include "Twig.h"
 
 #endif /* ITEM_INCLUDES_H */

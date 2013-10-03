@@ -10,8 +10,10 @@
 
 using namespace Zeni;
 
-Boulder::Boulder(const Point2f &position_, const Vector2f &size_)
-: Terrain(position_, size_, true)
+Boulder::Boulder(const int &floor_,
+                 const Point2f &position_,
+                 const Vector2f &size_)
+: Terrain(floor_, position_, size_, true)
 {}
 
 void Boulder::render() const {

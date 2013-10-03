@@ -104,10 +104,10 @@ The following things are unsupported:
     <filepath>textures/ice.png</filepath>
     <tile>1</tile>
   </ice>
-  <teleport>
-    <filepath>textures/teleport.png</filepath>
+  <portal>
+    <filepath>textures/portal.png</filepath>
     <tile>1</tile>
-  </teleport>
+  </portal>
   <hole>
     <filepath>textures/hole.png</filepath>
     <tile>1</tile>

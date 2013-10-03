@@ -10,8 +10,10 @@
 
 using namespace Zeni;
 
-Hole::Hole(const Point2f &position_, const Vector2f &size_)
-: Terrain(position_, size_, false)
+Hole::Hole(const int &floor_,
+           const Point2f &position_,
+           const Vector2f &size_)
+: Terrain(floor_, position_, size_, false)
 {}
 
 void Hole::render() const {
@@ -19,5 +21,5 @@ void Hole::render() const {
 }
 
 void Hole::interact(Explorer &explorer_) {
-  //explorer.set_position(Point2f(0.0f, 0.0f));
+  explorer_.set_floor(explorer_.get_floor() - 1);
 }

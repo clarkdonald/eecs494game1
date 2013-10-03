@@ -15,12 +15,14 @@
 #include <Zeni/Coordinate.h>
 
 class Pill : public Item {
-public:
-  Pill(const Zeni::Point2f &position_, const Zeni::Vector2f &size_);
+  public:
+    Pill(const int &floor_,
+         const Zeni::Point2f &position_,
+         const Zeni::Vector2f &size_);
+      
+    void render() const;
     
-  void render() const;
-  
-  bool for_pushing() const override;
+    bool for_pushing() const override;
 };
 
 #endif /* PILL_H */

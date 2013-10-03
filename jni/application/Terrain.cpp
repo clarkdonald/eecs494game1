@@ -8,10 +8,11 @@
 
 #include "Terrain.h"
 
-Terrain::Terrain(const Zeni::Point2f &position_,
+Terrain::Terrain(const int &floor_,
+                 const Zeni::Point2f &position_,
                  const Zeni::Vector2f &size_,
                  const bool &blocking_)
-: Game_Object(position_, size_, blocking_)
+: Game_Object(floor_, position_, size_, blocking_)
 {}
 
 Terrain::~Terrain() {}

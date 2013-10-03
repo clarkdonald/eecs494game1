@@ -18,7 +18,7 @@
 #include "Tree.h"
 #include "Exit.h"
 #include "Fire.h"
-#include "Teleport.h"
+#include "Portal.h"
 #include "Ice.h"
 
 #endif /* TERRAIN_INCLUDES_H */

@@ -17,7 +17,9 @@
 
 class Boulder : public Terrain {
   public:
-    Boulder(const Zeni::Point2f &position_, const Zeni::Vector2f &size_);
+    Boulder(const int &floor_,
+            const Zeni::Point2f &position_,
+            const Zeni::Vector2f &size_);
     
     void render() const;
       

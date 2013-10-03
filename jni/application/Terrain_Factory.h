@@ -15,8 +15,10 @@
 class Terrain;
 
 Terrain * create_terrain(const Zeni::String &type_,
+                         const int &floor_,
                          const Zeni::Point2f &position_,
                          const Zeni::Vector2f &size_,
-                         const Zeni::Point2f &destination_ = Zeni::Point2f(400.0f, 300.0f));
+                         const int &destination_floor_ = 0,
+                         const Zeni::Point2f &destination_position_ = Zeni::Point2f(400.0f, 300.0f));
 
 #endif /* TERRAIN_FACTORY_H */
