@@ -19,7 +19,6 @@ class Portal : public Terrain {
   public:
     Portal(const int &floor_,
            const Zeni::Point2f &position_,
-           const Zeni::Vector2f &size_,
            const int &destination_floor_,
            const Zeni::Point2f &destination_position_);
     

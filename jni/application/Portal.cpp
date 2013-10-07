@@ -12,10 +12,9 @@ using namespace Zeni;
 
 Portal::Portal(const int &floor_,
                const Zeni::Point2f &position_,
-               const Zeni::Vector2f &size_,
                const int &destination_floor_,
                const Zeni::Point2f &destination_position_)
-: Terrain(floor_, position_, size_, false),
+: Terrain(floor_, position_, false),
   destination_floor(destination_floor_),
   destination_position(destination_position_)
 {}

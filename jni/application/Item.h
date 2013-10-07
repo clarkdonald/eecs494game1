@@ -15,9 +15,7 @@
 
 class Item : public Game_Object {
   public:
-    Item(const int &floor_,
-         const Zeni::Point2f &position_,
-         const Zeni::Vector2f &size_);
+    Item(const int &floor_, const Zeni::Point2f &position_);
   
     virtual ~Item() = 0;
 

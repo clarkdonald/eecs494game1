@@ -12,11 +12,10 @@ using namespace Zeni;
 
 Movable_Object::Movable_Object(const int &floor_,
                                const Point2f &position_,
-                               const Vector2f &size_,
                                const Direction &direction_,
                                const bool &blocking_,
                                const float &speed_)
-: Game_Object(floor_, position_, size_, blocking_, speed_),
+: Game_Object(floor_, position_, blocking_, speed_),
   m_direction(direction_)
 {}
 

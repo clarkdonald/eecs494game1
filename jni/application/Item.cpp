@@ -8,10 +8,8 @@
 
 #include "Item.h"
 
-Item::Item(const int &floor_,
-           const Zeni::Point2f &position_,
-           const Zeni::Vector2f &size_)
-: Game_Object(floor_, position_, size_, false)
+Item::Item(const int &floor_, const Zeni::Point2f &position_)
+: Game_Object(floor_, position_, false)
 {}
 
 Item::~Item() {}

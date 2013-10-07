@@ -9,6 +9,11 @@
 #ifndef UTILITY_H
 #define UTILITY_H
 
+#include <Zeni/Coordinate.h>
+
+const float UNIT_LENGTH = 32.0f;
+const Zeni::Vector2f OBJECT_SIZE = Zeni::Vector2f(UNIT_LENGTH, UNIT_LENGTH);
+
 enum Direction {
   UP,
   DOWN,
@@ -35,5 +40,7 @@ struct Dimension {
   int height;
   int floor;
 };
+
+void transition();
 
 #endif /* UTILITY_H */

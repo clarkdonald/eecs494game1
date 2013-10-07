@@ -16,9 +16,7 @@
 
 class Pill : public Item {
   public:
-    Pill(const int &floor_,
-         const Zeni::Point2f &position_,
-         const Zeni::Vector2f &size_);
+    Pill(const int &floor_, const Zeni::Point2f &position_);
       
     void render() const;
     

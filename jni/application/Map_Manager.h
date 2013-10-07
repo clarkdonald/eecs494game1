@@ -31,6 +31,8 @@ class Map_Manager {
   
     bool empty() const;
   
+    void reset();
+  
     Map* get_next();
   
     Map* get(const std::string &file);

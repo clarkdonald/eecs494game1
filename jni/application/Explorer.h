@@ -30,9 +30,7 @@ struct Actions {
 
 class Explorer : public Movable_Object {
   public:
-    Explorer(const int &floor_,
-             const Zeni::Point2f &position_,
-             const Zeni::Vector2f &size_);
+    Explorer(const int &floor_, const Zeni::Point2f &position_);
   
     ~Explorer();
     

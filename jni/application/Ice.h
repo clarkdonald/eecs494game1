@@ -17,9 +17,7 @@
 
 class Ice : public Terrain {
 public:
-  Ice(const int &floor_,
-      const Zeni::Point2f &position_,
-      const Zeni::Vector2f &size_);
+  Ice(const int &floor_, const Zeni::Point2f &position_);
   
   void render() const;
   

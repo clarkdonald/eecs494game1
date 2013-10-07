@@ -10,10 +10,8 @@
 
 using namespace Zeni;
 
-Water::Water(const int &floor_,
-             const Point2f &position_,
-             const Vector2f &size_)
-: Terrain(floor_, position_, size_, true)
+Water::Water(const int &floor_, const Point2f &position_)
+: Terrain(floor_, position_, true)
 {}
 
 void Water::render() const {

@@ -16,7 +16,6 @@ class Game_Object {
   public:
     Game_Object(const int &floor_,
                 const Zeni::Point2f &position_,
-                const Zeni::Vector2f &size_,
                 const bool &blocking_,
                 const float &speed_ = 0.0f);
     

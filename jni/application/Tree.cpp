@@ -10,10 +10,8 @@
 
 using namespace Zeni;
 
-Tree::Tree(const int &floor_,
-           const Point2f &position_,
-           const Vector2f &size_)
-: Terrain(floor_, position_, size_, true)
+Tree::Tree(const int &floor_, const Point2f &position_)
+: Terrain(floor_, position_, true)
 {}
 
 void Tree::render() const {

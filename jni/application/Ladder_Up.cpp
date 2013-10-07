@@ -10,10 +10,8 @@
 
 using namespace Zeni;
 
-Ladder_Up::Ladder_Up(const int &floor_,
-                     const Point2f &position_,
-                     const Vector2f &size_)
-: Terrain(floor_, position_, size_, false)
+Ladder_Up::Ladder_Up(const int &floor_, const Point2f &position_)
+: Terrain(floor_, position_, false)
 {}
 
 void Ladder_Up::render() const {

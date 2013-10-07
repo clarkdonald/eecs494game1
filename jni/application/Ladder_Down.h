@@ -17,9 +17,7 @@
 
 class Ladder_Down : public Terrain {
   public:
-    Ladder_Down(const int &floor_,
-                const Zeni::Point2f &position_,
-                const Zeni::Vector2f &size_);
+    Ladder_Down(const int &floor_, const Zeni::Point2f &position_);
     
     void render() const;
     

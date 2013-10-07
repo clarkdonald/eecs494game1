@@ -17,9 +17,7 @@
 
 class Exit : public Terrain {
 public:
-  Exit(const int &floor_,
-       const Zeni::Point2f &position_,
-       const Zeni::Vector2f &size_);
+  Exit(const int &floor_, const Zeni::Point2f &position_);
   
   void render() const;
 };

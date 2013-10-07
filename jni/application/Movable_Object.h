@@ -17,7 +17,6 @@ class Movable_Object : public Game_Object {
   public:
     Movable_Object(const int &floor_,
                    const Zeni::Point2f &position_,
-                   const Zeni::Vector2f &size_,
                    const Direction &direction_,
                    const bool &blocking_,
                    const float &speed_ = 0.0f);

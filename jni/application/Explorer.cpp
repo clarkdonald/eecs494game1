@@ -31,10 +31,8 @@ void Actions::set(const Item &item_) {
   light = item_.for_lighting();
 }
 
-Explorer::Explorer(const int &floor_,
-                   const Point2f &position_,
-                   const Vector2f &size_)
-: Movable_Object(floor_, position_, size_, DOWN, true),
+Explorer::Explorer(const int &floor_, const Point2f &position_)
+: Movable_Object(floor_, position_, DOWN, true),
   m_item(nullptr),
   m_sliding(false)
 {}

@@ -17,9 +17,7 @@
 
 class Tree : public Terrain {
   public:
-    Tree(const int &floor_,
-         const Zeni::Point2f &position_,
-         const Zeni::Vector2f &size_);
+    Tree(const int &floor_, const Zeni::Point2f &position_);
     
     void render() const;
       

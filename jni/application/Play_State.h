@@ -21,6 +21,7 @@ class Map;
 
 class Play_State : public Zeni::Gamestate_Base {
   Play_State(const Play_State &);
+  
   Play_State operator=(const Play_State &);
     
   public:
@@ -37,12 +38,14 @@ class Play_State : public Zeni::Gamestate_Base {
     
     void perform_logic();
   
-    bool win;
-  
     Map* map_ptr;
+  
     Controls m_control;
+  
     Zeni::Chronometer<Zeni::Time> m_chrono;
+  
     float m_time_passed;
+  
     Zeni::Color m_prev_clear_color;
 };
 

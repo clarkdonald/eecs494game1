@@ -9,6 +9,8 @@
 #include "Map.h"
 #include "Terrain.h"
 #include "Item.h"
+#include "Exit.h"
+#include "Ground.h"
 #include "Terrain_Factory.h"
 #include "Item_Factory.h"
 #include <Zeni/Image.h>
@@ -32,6 +34,7 @@ Map::Map(const string &file)
   if (!next_file.is_open()) throw new bad_exception();
 
   map<char, string> element_mapper;
+  element_mapper['.'] = "Ground";
   element_mapper['b'] = "Boulder";
   element_mapper['u'] = "Ladder_Up";
   element_mapper['d'] = "Ladder_Down";
@@ -54,20 +57,16 @@ Map::Map(const string &file)
   for (int floor = 0; floor < dimension.floor; ++floor) {
     for (int height = 0; getline(next_file,line) && height < dimension.height;) {
       if (line.find('#') != std::string::npos) continue;
-      
       for (int width = 0; width < line.length() && width < dimension.width; ++width) {
-        if (line[width] == '.') continue;
-
-        if (line[width] == 's') {
+        if (line[width] == '.');
+        else if (line[width] == 's') {
           if (explorer != nullptr) throw new bad_exception;
           explorer = new Explorer(floor,
-                                  Point2f(UNIT_LENGTH*width, UNIT_LENGTH*height),
-                                  OBJECT_SIZE);
+                                  Point2f(UNIT_LENGTH*width, UNIT_LENGTH*height));
         }
         else if (line[width] == 'e') {
           exits.push_back(new Exit(floor,
-                          Point2f(UNIT_LENGTH*width, UNIT_LENGTH*height),
-                          OBJECT_SIZE));
+                          Point2f(UNIT_LENGTH*width, UNIT_LENGTH*height)));
         }
         else if (isupper(line[width])) {
           map<char,string>::iterator it;
@@ -76,8 +75,7 @@ Map::Map(const string &file)
           items.push_back(
             create_item(String(it->second),
                         floor,
-                        Point2f(UNIT_LENGTH*width, UNIT_LENGTH*height),
-                        OBJECT_SIZE));
+                        Point2f(UNIT_LENGTH*width, UNIT_LENGTH*height)));
         }
         else if (islower(line[width])) {
           map<char,string>::iterator it;
@@ -86,12 +84,13 @@ Map::Map(const string &file)
           terrains.push_back(
             create_terrain(String(it->second),
                            floor,
-                           Point2f(UNIT_LENGTH*width, UNIT_LENGTH*height),
-                           OBJECT_SIZE));
+                           Point2f(UNIT_LENGTH*width, UNIT_LENGTH*height)));
         }
         else {
           throw new bad_exception;
         }
+        grounds.push_back(new Ground(floor,
+                                     Point2f(UNIT_LENGTH*width, UNIT_LENGTH*height)));
       }
       ++height;
     }
@@ -109,9 +108,10 @@ Map::~Map() {
 }
 
 void Map::render() {
-  get_Video().set_2d();
-//  get_Video().set_2d(std::make_pair(explorer->get_position() - Vector2f(100.0f, 0.0f),
-//                                    explorer->get_position() + Vector2f(600.0f,400.0f)), true);
+  get_Video().set_2d(std::make_pair(explorer->get_position() - Vector2f(300.0f, 200.0f),
+                                    explorer->get_position() + Vector2f(500.0f, 400.0f)), true);
+  for (auto it = grounds.begin(); it != grounds.end(); ++it)
+    if (explorer->get_floor() == (*it)->get_floor()) (*it)->render();
   for (auto it = terrains.begin(); it != terrains.end(); ++it)
     if (explorer->get_floor() == (*it)->get_floor()) (*it)->render();
   for (auto it = items.begin(); it != items.end(); ++it)

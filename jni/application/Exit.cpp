@@ -10,10 +10,8 @@
 
 using namespace Zeni;
 
-Exit::Exit(const int &floor_,
-           const Point2f &position_,
-           const Vector2f &size_)
-: Terrain(floor_, position_, size_, false)
+Exit::Exit(const int &floor_, const Point2f &position_)
+: Terrain(floor_, position_, false)
 {}
 
 void Exit::render() const {

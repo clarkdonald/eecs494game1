@@ -41,6 +41,10 @@ bool Map_Manager::empty() const {
   return (files.size() - index) <= 0;
 }
 
+void Map_Manager::reset() {
+  index = 0;
+}
+
 Map* Map_Manager::get_next() {
   if (empty()) throw new bad_exception();
   Map* map_ptr;
