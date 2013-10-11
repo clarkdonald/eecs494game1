@@ -14,40 +14,30 @@
 
 class Game_Object {
   public:
-    Game_Object(const int &floor_,
-                const Zeni::Point2f &position_,
-                const bool &blocking_,
-                const float &speed_ = 0.0f);
+    Game_Object(const Position &position_);
     
     virtual ~Game_Object() {}
     
     virtual void render() const = 0;
-    
+  
+    bool pseudo_touching(const Game_Object &rhs) const;
+  
     bool touching(const Game_Object &rhs) const;
   
-    const int & get_floor() const;
-  
-    const Zeni::Point2f & get_position() const;
+    const Position & get_position() const;
     
     const Zeni::Vector2f & get_size() const;
     
     const float get_radius() const;
   
-    const bool & is_blocking() const;
-  
-    void set_floor(const int &floor_);
-  
-    void set_position(const Zeni::Point2f& position_);
+    void set_position(const Position& position_);
     
   protected:
     void render(const Zeni::String &texture, const Zeni::Color &filter = Zeni::Color()) const;
   
   private:
-    int m_floor;
-    Zeni::Point2f m_position;
+    Position m_position;
     Zeni::Vector2f m_size;
-    bool m_blocking;
-    float m_speed;
 };
 
 #endif /* GAME_OBJECT_H */

@@ -10,16 +10,15 @@
 #define EXIT_H
 
 #include "Terrain.h"
-#include "Explorer.h"
 #include "Utility.h"
 #include <Zeni/String.h>
 #include <Zeni/Coordinate.h>
 
 class Exit : public Terrain {
-public:
-  Exit(const int &floor_, const Zeni::Point2f &position_);
-  
-  void render() const;
+  public:
+    Exit(const Position &position_);
+    
+    void render() const;
 };
 
 #endif /* EXIT_H */

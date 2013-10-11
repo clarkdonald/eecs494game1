@@ -10,16 +10,15 @@
 #define GROUND_H
 
 #include "Terrain.h"
-#include "Explorer.h"
 #include "Utility.h"
 #include <Zeni/String.h>
 #include <Zeni/Coordinate.h>
 
 class Ground : public Terrain {
-public:
-  Ground(const int &floor_, const Zeni::Point2f &position_);
-  
-  void render() const;
+  public:
+    Ground(const Position &position_);
+    
+    void render() const;
 };
 
 #endif /* GROUND_H */

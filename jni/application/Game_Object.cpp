@@ -11,37 +11,35 @@
 
 using namespace Zeni;
 
-Game_Object::Game_Object(const int &floor_,
-                         const Point2f &position_,
-                         const bool &blocking_,
-                         const float &speed_)
-: m_floor(floor_),
-  m_position(position_),
-  m_size(OBJECT_SIZE),
-  m_blocking(blocking_),
-  m_speed(speed_)
+Game_Object::Game_Object(const Position &position_)
+: m_position(position_),
+  m_size(OBJECT_SIZE)
 {}
 
+bool Game_Object::pseudo_touching(const Game_Object &rhs) const {
+  if (m_position.floor != rhs.get_position().floor) return false;
+
+  const Vector2f dist_vec = m_position.position - rhs.m_position.position + 0.5f * (m_size - rhs.m_size);
+  const float dist2 = dist_vec * dist_vec * 1.3f;
+  const float radius_sum = get_radius() + rhs.get_radius();
+  return dist2 < radius_sum * radius_sum;
+}
+
 bool Game_Object::touching(const Game_Object &rhs) const {
-  if (m_floor != rhs.get_floor()) return false;
+  if (m_position.floor != rhs.get_position().floor) return false;
   
-  float centerX = get_position().x + get_size().x/2.0f;
-  float centerY = get_position().y + get_size().y/2.0f;
-  float rhsCenterX = rhs.get_position().x + rhs.get_size().x/2.0f;
-  float rhsCenterY = rhs.get_position().y + rhs.get_size().y/2.0f;
+  float distance = UNIT_LENGTH - 3.0f;
+  float centerX = get_position().position.x + (get_size().x / 2.0f);
+  float centerY = get_position().position.y + (get_size().y / 2.0f);
+  float rhsCenterX = rhs.get_position().position.x + (rhs.get_size().x / 2.0f);
+  float rhsCenterY = rhs.get_position().position.y + (rhs.get_size().y / 2.0f);
   
-  if ((abs(centerX - rhsCenterX) < UNIT_LENGTH) &&
-      (abs(centerY - rhsCenterY) < UNIT_LENGTH))
+  if ((abs(centerX - rhsCenterX) < distance) && (abs(centerY - rhsCenterY) < distance))
     return true;
-  
   return false;
 }
 
-const int & Game_Object::get_floor() const {
-  return m_floor;
-}
-
-const Point2f & Game_Object::get_position() const {
+const Position & Game_Object::get_position() const {
   return m_position;
 }
 
@@ -53,26 +51,17 @@ const float Game_Object::get_radius() const {
   return 0.5f * m_size.magnitude();
 }
 
-const bool & Game_Object::is_blocking() const {
-  return m_blocking;
-}
-
-void Game_Object::set_floor(const int &floor_) {
-  m_floor = floor_;
-}
-
-void Game_Object::set_position(const Zeni::Point2f &position_) {
-  m_position.x = position_.x;
-  m_position.y = position_.y;
+void Game_Object::set_position(const Position& position_) {
+  m_position = position_;
 }
 
 void Game_Object::render(const String &texture, const Color &filter) const {
   render_image(texture, // which texture to use
-               m_position, // upper-left corner
-               m_position + m_size, // lower-right corner
+               m_position.position, // upper-left corner
+               m_position.position + m_size, // lower-right corner
                0.0f, // rotation in radians
                1.0f, // scaling factor
-               m_position + 0.5f * m_size, // point to rotate & scale about
+               m_position.position + 0.5f * m_size, // point to rotate & scale about
                false, // whether or not to horizontally flip the texture
                filter); // what Color to "paint" the texture
 }

@@ -17,44 +17,39 @@
 
 class Item;
 class Terrain;
+class Boulder;
 
 struct Actions {
   Actions();
   void clear();
   void set(const Item &item_);
   bool cut;
-  bool burn;
-  bool light;
+  bool fill;
+  bool extinguish;
   bool push;
 };
 
 class Explorer : public Movable_Object {
   public:
-    Explorer(const int &floor_, const Zeni::Point2f &position_);
+    Explorer(const Position &position_);
   
     ~Explorer();
     
-    void pickup_item(const bool &action_, std::list<Item*> &items_);
+    bool pickup_item(const bool &action_, std::list<Item*> &items_);
   
-    void drop_item(const bool &action_, std::list<Item*> &items_);
+    bool drop_item(const bool &action_, std::list<Item*> &items_);
   
-    void use_item(const bool &action_, std::list<Terrain*> &terrains_);
+    bool use_item(const bool &action_,
+                  std::list<Boulder*> &boulders_,
+                  std::list<Terrain*> &terrains_,
+                  const Dimension &dimension_);
   
     bool wielding_item() const;
-  
-    const bool & is_sliding() const;
-  
-    void set_sliding(const bool &sliding_);
-  
-    void collide(const std::list<Terrain*> &terrains_);
-    
+      
     void render() const;
   
   private:
     Item* m_item;
-  
-    bool m_sliding;
-  
     Actions m_actions;
 };
 

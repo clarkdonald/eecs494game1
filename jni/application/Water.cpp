@@ -10,12 +10,20 @@
 
 using namespace Zeni;
 
-Water::Water(const int &floor_, const Point2f &position_)
-: Terrain(floor_, position_, true)
+Water::Water(const Position &position_)
+: Terrain(position_)
 {}
 
 void Water::render() const {
   Game_Object::render("water");
+}
+
+bool Water::is_movable_blocking() const {
+  return true;
+}
+
+bool Water::is_water_filling() const {
+  return true;
 }
 
 bool Water::is_crushable() const {

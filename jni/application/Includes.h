@@ -9,6 +9,7 @@
 #ifndef INCLUDES_H
 #define INCLUDES_H
 
+#include "Utility.h"
 #include "Game_Object.h"
 #include "Movable_Object.h"
 #include "Terrain_Includes.h"
@@ -18,6 +19,5 @@
 #include "Boulder.h"
 #include "Explorer.h"
 #include "Play_State.h"
-#include "Utility.h"
 
 #endif /* INCLUDES_H */

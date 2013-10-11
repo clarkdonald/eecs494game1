@@ -11,24 +11,32 @@
 
 #include <list>
 #include "Utility.h"
-#include "Explorer.h"
 #include <Zeni/Coordinate.h>
+#include <Zeni/Widget.h>
+#include <Zeni/Joysticks.h>
+#include <Zeni/Game.hxx>
+#include <Zeni/Timer.h>
+#include <Zeni/Chronometer.h>
 #include <string>
 #include <map>
 
 class Item;
 class Terrain;
 class Game_Object;
+class Boulder;
 class Exit;
 class Ground;
+class Explorer;
+
+enum Status { DONE, UNDONE, SKIP };
 
 class Map {
   public:
     // constructor
-    Map(const std::string &file);
+    Map();
   
     // destructor
-    ~Map();
+    virtual ~Map() = 0;
   
     // forbid copy/move, construction/assignment
     Map(const Map&) = delete;
@@ -36,19 +44,30 @@ class Map {
     Map& operator= (const Map&) = delete;
     Map& operator= (Map&&) = delete;
   
-    void render();
+    // get explorer coordinate
+    const Zeni::Point2f & get_explorer_position() const;
   
-    bool perform_logic(Controls &controls_, const float &time_step_);
+    // return level info
+    std::string get_level_info() const;
+
+    // show game objects on screen
+    virtual void render();
   
-  private:
-    //static std::map<char, std::string> element_mapper;
+    // perform logical operations of game object based on user input
+    virtual Status perform_logic(Controls &controls_, const float &time_step_);
+  
+  protected:
     Dimension dimension;
+    std::list<Boulder*> boulders;
     std::list<Ground*> grounds;
     std::list<Item*> items;
     std::list<Terrain*> terrains;
     std::list<Exit*> exits;
     Explorer *explorer;
-    std::vector< std::vector<Game_Object*> > grid;
+    std::string level_info;
+    Zeni::Chronometer<Zeni::Time> use_timer;
+    Zeni::Chronometer<Zeni::Time> drop_timer;
+    Zeni::Chronometer<Zeni::Time> pickup_timer;
 };
 
 #endif /* MAP_H */

@@ -124,6 +124,10 @@ The following things are unsupported:
     <filepath>textures/ground.png</filepath>
     <tile>1</tile>
   </ground>
+  <skip>
+    <filepath>textures/skip.png</filepath>
+    <tile>1</tile>
+  </skip>
   <!--
   <one>
     <is_sprite>0</is_sprite>

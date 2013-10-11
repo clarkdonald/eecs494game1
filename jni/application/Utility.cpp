@@ -13,6 +13,11 @@
 
 using namespace Zeni;
 
+Position::Position(int floor_, Zeni::Point2f position_)
+: floor(floor_),
+  position(position_)
+{}
+
 Controls::Controls()
 : up(false),
   left(false),
@@ -21,7 +26,10 @@ Controls::Controls()
   speed_boost(false),
   pickup(false),
   drop(false),
-  use(false)
+  use(false),
+  cheat0(false),
+  cheat1(false),
+  cheat2(false)
 {}
 
 Dimension::Dimension()

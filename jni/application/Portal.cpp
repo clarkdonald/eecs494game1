@@ -10,12 +10,8 @@
 
 using namespace Zeni;
 
-Portal::Portal(const int &floor_,
-               const Zeni::Point2f &position_,
-               const int &destination_floor_,
-               const Zeni::Point2f &destination_position_)
-: Terrain(floor_, position_, false),
-  destination_floor(destination_floor_),
+Portal::Portal(const Position &position_, const Position &destination_position_)
+: Terrain(position_),
   destination_position(destination_position_)
 {}
 
@@ -23,7 +19,10 @@ void Portal::render() const {
   Game_Object::render("portal");
 }
 
-void Portal::interact(Explorer &explorer_) {
-  explorer_.set_position(destination_position);
-  explorer_.set_floor(destination_floor);
+void Portal::interact(Movable_Object &object_) {
+  object_.set_position(destination_position);
+}
+
+bool Portal::is_forced_move() const {
+  return true;
 }

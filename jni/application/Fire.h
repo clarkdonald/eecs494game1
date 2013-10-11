@@ -10,16 +10,21 @@
 #define FIRE_H
 
 #include "Terrain.h"
-#include "Explorer.h"
 #include "Utility.h"
 #include <Zeni/String.h>
 #include <Zeni/Coordinate.h>
 
 class Fire : public Terrain {
   public:
-    Fire(const int &floor_, const Zeni::Point2f &position_);
+    Fire(const Position &position_);
     
     void render() const;
+  
+    bool is_movable_blocking() const override;
+  
+    bool is_terrain_blocking() const override;
+  
+    bool is_extinguishable() const override;
 };
 
 #endif /* FIRE_H */

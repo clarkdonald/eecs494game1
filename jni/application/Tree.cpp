@@ -10,12 +10,20 @@
 
 using namespace Zeni;
 
-Tree::Tree(const int &floor_, const Point2f &position_)
-: Terrain(floor_, position_, true)
+Tree::Tree(const Position &position_)
+: Terrain(position_)
 {}
 
 void Tree::render() const {
   Game_Object::render("tree");
+}
+
+bool Tree::is_movable_blocking() const {
+  return true;
+}
+
+bool Tree::is_terrain_blocking() const {
+  return true;
 }
 
 bool Tree::is_cuttable() const {

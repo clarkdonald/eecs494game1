@@ -10,8 +10,8 @@
 
 using namespace Zeni;
 
-Axe::Axe(const int &floor_, const Point2f &position_)
-: Item(floor_, position_)
+Axe::Axe(const Position &position_)
+: Item(position_)
 {}
 
 void Axe::render() const {

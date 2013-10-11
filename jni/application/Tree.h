@@ -10,17 +10,20 @@
 #define TREE_H
 
 #include "Terrain.h"
-#include "Explorer.h"
 #include "Utility.h"
 #include <Zeni/String.h>
 #include <Zeni/Coordinate.h>
 
 class Tree : public Terrain {
   public:
-    Tree(const int &floor_, const Zeni::Point2f &position_);
+    Tree(const Position &position_);
     
     void render() const;
-      
+  
+    bool is_movable_blocking() const override;
+  
+    bool is_terrain_blocking() const override;
+  
     bool is_cuttable() const override;
 };
 

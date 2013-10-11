@@ -11,7 +11,7 @@
 
 #include "Item.h"
 #include "Axe.h"
-#include "Pill.h"
-#include "Twig.h"
+#include "Dumbbell.h"
+#include "Bucket.h"
 
 #endif /* ITEM_INCLUDES_H */

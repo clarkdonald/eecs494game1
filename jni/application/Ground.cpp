@@ -10,8 +10,8 @@
 
 using namespace Zeni;
 
-Ground::Ground(const int &floor_, const Point2f &position_)
-: Terrain(floor_, position_, false)
+Ground::Ground(const Position &position_)
+: Terrain(position_)
 {}
 
 void Ground::render() const {

@@ -1,0 +1,24 @@
+1
+20
+30
+# floor0
+s..iiiiiiiiiiiiiiiiiiiiiiiiiii
+...biiiiiiiiiiiiiiiiiiiiiiiiii
+...bibiiiibiiiiiiiiiiiiiiiiiii
+bbbiiiiiiibiiiiiiiiiiiiiiiibii
+iiiiiiibiiiiiiiiiiiiiiiiiiiiii
+iiiiiiiiiiiiiiiiiiiiiiiiiiiiii
+iiiiiiiiiiiiiiiiiiiibiiiiiiiii
+iiiiiiiiiiiibiiiiiiiiiiiibiiii
+iiiiibiiiiiiiiiiiiiiiiiiiiiibi
+iiiiiiiiiiiiiiiiiiiiiiiiiiiiii
+iiiiiiiiiiiiiiiiiiiiiiiiiiiiii
+iiiiiiiiiiiiiiiiiibiiiiiiiiiii
+iiiiiiiibiiiiiiiiiiiiiiiiiiiii
+iiiiiiiiiiiiiiiiiiiiiiiiiiiiii
+iiiiiiiiiiiiiiiiiiiiiiiiiiiiii
+iiiiiiiiiiiiiiiiiiiiiiiiiiiiii
+iiiiiiiiiiiiiiiiiiiiiiiiiibbbb
+iiiiiibiiiiiiiiiiiiiiiiiiii...
+iiibiiiiibiiiiiiiiiiiiiiiib.tt
+ibAiiiiiiiiiiiiiiiibiiiiiib.te

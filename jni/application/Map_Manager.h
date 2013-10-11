@@ -15,7 +15,8 @@
 
 class Map;
 
-const int NUM_FILES = 1;
+const int NUM_TUTORIALS = 5;
+const int NUM_FILES = 4;
 
 class Map_Manager {
   public:
@@ -35,7 +36,11 @@ class Map_Manager {
   
     Map* get_next();
   
+    Map* get_previous();
+  
     Map* get(const std::string &file);
+  
+    Map* skip();
   
   private:
     Map_Manager();

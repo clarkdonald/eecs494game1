@@ -16,7 +16,7 @@
 
 class Axe : public Item {
   public:
-    Axe(const int &floor_, const Zeni::Point2f &position_);
+    Axe(const Position &position_);
     
     void render() const;
     

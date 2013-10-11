@@ -11,20 +11,10 @@
 
 using std::bad_alloc;
 
-Item * create_item(const Zeni::String &type_,
-                   const int &floor_,
-                   const Zeni::Point2f &position_)
+Item * create_item(const Zeni::String &type_, const Position &position_)
 {
-  if (type_ == "Axe") {
-    return new Axe(floor_, position_);
-  }
-  if (type_ == "Pill") {
-    return new Pill(floor_, position_);
-  }
-  if (type_ == "Twig") {
-    return new Twig(floor_, position_);
-  }
-  else {
-    throw new std::bad_alloc;
-  }
+  if (type_ == "Axe") return new Axe(position_);
+  else if (type_ == "Dumbbell") return new Dumbbell(position_);
+  else if (type_ == "Bucket") return new Bucket(position_);
+  else throw new std::bad_alloc;
 }

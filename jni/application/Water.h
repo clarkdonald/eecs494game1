@@ -16,10 +16,14 @@
 
 class Water : public Terrain {
 public:
-  Water(const int &floor_, const Zeni::Point2f &position_);
+  Water(const Position &position_);
   
   void render() const;
-    
+  
+  bool is_movable_blocking() const override;
+  
+  bool is_water_filling() const override;
+  
   bool is_crushable() const override;
 };
 

@@ -8,8 +8,8 @@
 
 #include "Item.h"
 
-Item::Item(const int &floor_, const Zeni::Point2f &position_)
-: Game_Object(floor_, position_, false)
+Item::Item(const Position &position_)
+: Game_Object(position_)
 {}
 
 Item::~Item() {}
@@ -18,14 +18,14 @@ bool Item::for_cutting() const {
   return false;
 }
 
-bool Item::for_burning() const {
-  return false;
-}
-
 bool Item::for_pushing() const {
   return false;
 }
 
-bool Item::for_lighting() const {
-  return false;
+bool Item::for_extinguishing() const {
+  return true;
+}
+
+bool Item::for_water_filling() const {
+  return true;
 }

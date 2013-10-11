@@ -10,14 +10,18 @@
 
 using namespace Zeni;
 
-Boulder::Boulder(const int &floor_, const Point2f &position_)
-: Terrain(floor_, position_, true)
+Boulder::Boulder(const Position &position_)
+: Terrain(position_)
 {}
 
 void Boulder::render() const {
   Game_Object::render("boulder");
 }
 
-bool Boulder::is_pushable() const {
+bool Boulder::is_movable_blocking() const {
+  return true;
+}
+
+bool Boulder::is_terrain_blocking() const {
   return true;
 }

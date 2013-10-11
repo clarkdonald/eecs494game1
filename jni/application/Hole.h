@@ -10,18 +10,21 @@
 #define HOLE_H
 
 #include "Terrain.h"
-#include "Explorer.h"
 #include "Utility.h"
 #include <Zeni/String.h>
 #include <Zeni/Coordinate.h>
 
 class Hole : public Terrain {
   public:
-    Hole(const int &floor_, const Zeni::Point2f &position_);
+    Hole(const Position &position_);
     
     void render() const;
+  
+    void interact(Movable_Object &object_) override;
     
-    void interact(Explorer &explorer_);
+    bool is_droppable() const override;
+  
+    bool is_forced_move() const override;
 };
 
 #endif /* HOLE_H */

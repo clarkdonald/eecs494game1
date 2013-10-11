@@ -21,5 +21,6 @@
 #include "Portal.h"
 #include "Ice.h"
 #include "Ground.h"
+#include "Skip.h"
 
 #endif /* TERRAIN_INCLUDES_H */

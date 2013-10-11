@@ -21,6 +21,12 @@ enum Direction {
   RIGHT
 };
 
+struct Position {
+  Position(int floor_, Zeni::Point2f position_);
+  int floor;
+  Zeni::Point2f position;
+};
+
 struct Controls {
   Controls();
   bool up;
@@ -31,6 +37,10 @@ struct Controls {
   bool pickup;
   bool drop;
   bool use;
+  bool cheat0;
+  bool cheat1;
+  bool cheat2;
+  bool retry;
 };
 
 struct Dimension {

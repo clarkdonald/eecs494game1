@@ -7,17 +7,30 @@
 //
 
 #include "Hole.h"
+#include <list>
+
+using std::list;
 
 using namespace Zeni;
 
-Hole::Hole(const int &floor_, const Point2f &position_)
-: Terrain(floor_, position_, false)
+Hole::Hole(const Position &position_)
+: Terrain(position_)
 {}
 
 void Hole::render() const {
   Game_Object::render("hole");
 }
 
-void Hole::interact(Explorer &explorer_) {
-  explorer_.set_floor(explorer_.get_floor() - 1);
+void Hole::interact(Movable_Object &object_) {
+  Position pos = object_.get_position();
+  pos.floor -= 1;
+  object_.set_position(pos);
+}
+
+bool Hole::is_droppable() const {
+  return true;
+}
+
+bool Hole::is_forced_move() const {
+  return true;
 }

@@ -10,10 +10,22 @@
 
 using namespace Zeni;
 
-Fire::Fire(const int &floor_, const Point2f &position_)
-: Terrain(floor_, position_, true)
+Fire::Fire(const Position &position_)
+: Terrain(position_)
 {}
 
 void Fire::render() const {
   Game_Object::render("fire");
+}
+
+bool Fire::is_movable_blocking() const {
+  return true;
+}
+
+bool Fire::is_terrain_blocking() const {
+  return true;
+}
+
+bool Fire::is_extinguishable() const {
+  return true;
 }
